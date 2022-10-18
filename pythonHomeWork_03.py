@@ -31,25 +31,59 @@
 # - [2, 3, 4, 5, 6] => [12, 15, 16];
 # - [2, 3, 5, 6] => [12, 15]
 
-def getting_pairs_of_elements(i):
-    if int(len(spicok)) % 2 == 1:
-        size = int(len(spicok)/2 + 1)
-        for i in range(size):
-            print (f'Произведение {i+1} пары элементов {spicok[i]} и {spicok[-i - 1]} равно: {spicok[i] * spicok[-i - 1]}')
-    else:
-        size = int(len(spicok)/2)
-        for i in range(size):
-            print (f'Произведение {i+1} пары элементов {spicok[i]} и {spicok[-i - 1]} равно: {spicok[i] * spicok[-i - 1]}')
+# def getting_pairs_of_elements(i):
+#     if int(len(spicok)) % 2 == 1:
+#         size = int(len(spicok)/2 + 1)
+#         for i in range(size):
+#             print (f'Произведение {i+1} пары элементов {spicok[i]} и {spicok[-i - 1]} равно: {spicok[i] * spicok[-i - 1]}')
+#     else:
+#         size = int(len(spicok)/2)
+#         for i in range(size):
+#             print (f'Произведение {i+1} пары элементов {spicok[i]} и {spicok[-i - 1]} равно: {spicok[i] * spicok[-i - 1]}')
 
-spicok = list(map(int, input('Введите числа через пробел: ').split()))
-print(f'Введенный массив: {spicok}')
-getting_pairs_of_elements(spicok)
+# spicok = list(map(int, input('Введите числа через пробел: ').split()))
+# print(f'Введенный массив: {spicok}')
+# getting_pairs_of_elements(spicok)
 
 # Задача 3. Задайте список из вещественных чисел. Напишите программу, которая найдёт разницу между 
 # максимальным и минимальным значением дробной части элементов.
 
 # *Пример:*
 # - [1.1, 1.2, 3.1, 5, 10.01] => 0.19
+
+# from decimal import Decimal
+
+# def separate_main_part(result):
+#     new_spicok = []
+#     counter = 0
+#     size = int(len(spicok))
+#     for i in range (size):
+#         result = Decimal(str(spicok[i])) % 1
+#         print (result)
+#         new_spicok.insert(counter, float(Decimal(str(spicok[i])) % 1))
+#     return(new_spicok)
+
+# def find_max_min_value(i):
+#     size = int(len(new_spicok))
+#     for i in range (size):
+#         max = new_spicok[i]
+#         min = new_spicok[i]
+#         for i in range (size):
+#             if new_spicok[i] < min:
+#                 min = new_spicok[i]
+#             elif new_spicok[i] > max:
+#                 max = new_spicok[i]
+#     return print (f'Разница между максимальным и минимальным значениями равна: {max} - {min} = {max - min}')
+
+# spicok = list(map(float, input('Введите числа c дробной частью через пробел: ').split()))
+# print(f'Введенный список выглядит так: {spicok}')
+
+# new_spicok = separate_main_part(spicok)
+
+# print(f'Новый список выглядит так: {new_spicok}')
+# print('----------------')
+# find_max_min_value(new_spicok)
+
 
 # Задача 4. Напишите программу, которая будет преобразовывать десятичное число в двоичное.
 
@@ -58,8 +92,18 @@ getting_pairs_of_elements(spicok)
 # - 3 -> 11
 # - 2 -> 10
 
+a = int(input('Введите целое число: '))
+b = ''
+while a > 0:
+    b = str(a % 2) + b
+    a = a // 2
+ 
+print(f'В двоичной сисстеме счисления введенное число будет равно: {b}')
+
+
 # Задача 5. HARD необязательная.Сгенерировать массив случайных целых чисел размерностью m*n (размерность вводим с клавиатуры), 
 # причем чтоб количество элементов было четное. Вывести на экран красивенько таблицей. 
 # Перемешать случайным образом элементы массива, причем чтобы каждый гарантированно переместился на другое место 
 # и выполнить это за m*n / 2 итераций. То есть если массив три на четыре, то надо выполнить не более 6 итераций. 
 # И далее в конце опять вывести на экран как таблицу.
+
